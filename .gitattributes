@@ -1,0 +1,11 @@
+* text=auto
+
+*.lua          text
+*.md           text diff=markdown
+*.xml          text
+.gitattributes text export-ignore
+.gitignore     text export-ignore
+
+*.dds binary
+*.png binary
+*.psd binary
