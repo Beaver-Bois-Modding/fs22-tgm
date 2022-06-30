@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<l10n>
+    <translationContributors>Beaver Bois Modding</translationContributors>
+    <texts>
+        <text name="treeGrowthManager_settingsGui_title" text="Tree Growth Manager" />
+        <text name="treeGrowthManager_settingsGui_growthRate" text="Relative growth rate" />
+        <text name="treeGrowthManager_settingsGui_current" text="Current" />
+        <text name="treeGrowthManager_settingsGui_default" text="Default" />
+        <text name="treeGrowthManager_settingsGui_hour" text="hour" />
+        <text name="treeGrowthManager_settingsGui_hours" text="hours" />
+    </texts>
+</l10n>
