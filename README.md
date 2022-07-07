@@ -23,7 +23,30 @@ If you've found a bug, please [open an issue](https://github.com/Beaver-Bois-Mod
 
 ### Translations
 
-If you'd like to provide a translation for this mod in your language, that'd be very much appreciated. You can find the English translation file in `src/FS22_treeGrowthManager/data/l10n/locale_en.xml`. To make a translation file for your language, copy the English file and rename it to `locale_<your locale>.xml` (e.g. if your locale is `de`, the filename should be `locale_de.xml`).
+If you'd like to provide a translation for this mod in your language, that'd be very much appreciated.
+
+The mod name and description are located within `src/FS22_treeGrowthManager/modDesc.xml`. To translate these, you'll need to provide a new subsection named after your locale to the `<title>` and `<description>` sections respectively. E.g. if your locale is `de`, it should end up looking something like the following.
+
+```xml
+<title>
+    <en>Tree Growth Manager</en>
+    <de>german title goes here</de>
+</title>
+<description>
+    <en>
+<![CDATA[
+Make forrestry on your farm more enjoyable and cost effective...
+]]>
+    </en>
+    <de>
+<![CDATA[
+german description goes here
+]]>
+    </de>
+</description>
+```
+
+You can find all other strings in the English translation file in `src/FS22_treeGrowthManager/data/l10n/locale_en.xml`. To make a translation file for your language, copy the English file and rename it to `locale_<your locale>.xml` (e.g. if your locale is `de`, the filename should be `locale_de.xml`). In this file you can place your own name in the `<translationContributors>` tag, and otherwise translate any text within a `text=""` attribute.
 
 The languages supported by FS22 are as follows:
 * `br` = Portuguese (Brazil)
