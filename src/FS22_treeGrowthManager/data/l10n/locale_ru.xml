@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<l10n>
+    <translationContributors>nagor</translationContributors>
+    <texts>
+        <text name="treeGrowthManager_settingsGui_title" text="Скорость роста деревьев" />
+        <text name="treeGrowthManager_settingsGui_growthRate" text="Скорость роста" />
+        <text name="treeGrowthManager_settingsGui_current" text="Текущая" />
+        <text name="treeGrowthManager_settingsGui_default" text="Стандартная" />
+        <text name="treeGrowthManager_settingsGui_hour" text="час" />
+        <text name="treeGrowthManager_settingsGui_hours" text="часов" />
+    </texts>
+</l10n>
