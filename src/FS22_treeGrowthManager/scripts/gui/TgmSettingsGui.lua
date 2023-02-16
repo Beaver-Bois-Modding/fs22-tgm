@@ -60,6 +60,8 @@ function TgmSettingsGui:initialize(gameSettingsFrame)
     local template = gameSettingsFrame.economicDifficulty:clone()
     template.target = target
     template.id = nil
+    template.focusId = nil
+    template.focusChangeData = nil
     template.onClickCallback = self.onStateChanged
     template.buttonLRChange = self.onStateChanged
     template.texts = {}
@@ -71,10 +73,14 @@ function TgmSettingsGui:initialize(gameSettingsFrame)
     template:setState(20)
 
     local variations = {}
+    local lastElement = FocusManager:getNextFocusElement(gameSettingsFrame.buttonPauseGame, "top")
     for _, treeType in TgmTableUtil.orderedPairs(g_treePlantManager.nameToTreeType) do
         local element = template:clone()
         element.id = (treeType.name.."_growthRate")
         element.__species = treeType.name
+        FocusManager:loadElementFromCustomValues(element, nil, {top=lastElement.focusId}, false, false)
+        lastElement.focusChangeData["bottom"] = element.focusId
+        lastElement = element
         local growthRate = target.configuration.growthRates[treeType.name]
         if (growthRate ~= nil) then
             element:setState(TgmSettingsGui.convertGrowthRateToState(growthRate))
@@ -93,6 +99,8 @@ function TgmSettingsGui:initialize(gameSettingsFrame)
         gameSettingsFrame[element.id] = element
         gameSettingsFrame.boxLayout:addElement(element)
     end
+    lastElement.focusChangeData["bottom"] = gameSettingsFrame.buttonPauseGame.focusId
+    gameSettingsFrame.buttonPauseGame.focusChangeData["top"] = lastElement.focusId
 
     gameSettingsFrame.boxLayout:invalidateLayout()
     self.isInitialized = true
