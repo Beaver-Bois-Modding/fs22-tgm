@@ -15,6 +15,7 @@ function TreeGrowthManager.new()
 
     self.mission = nil
     self.isServer = false
+    self.l10nImporter = TgmL10nImporter.new()
     self.configuration = TgmConfiguration.new()
     self.settingsGui = TgmSettingsGui.new()
     self.defaultGrowthHours = {}
@@ -61,6 +62,7 @@ function TreeGrowthManager:onClientConnected(connection)
 end
 
 function TreeGrowthManager:onLoadFinished()
+    self.l10nImporter:import()
     self:captureDefaultGrowthRates()
     self:invalidateGrowthRates()
 end
