@@ -54,7 +54,7 @@ function TgmSettingsGui:initialize(gameSettingsFrame)
 
     local title = TextElement.new()
     title:applyProfile("settingsMenuSubtitle", true)
-    title:setText(g_i18n:getText("treeGrowthManager_settingsGui_title"))
+    title:setText(g_i18n:getText("treeGrowthManager_settingsGui_growthRatesTitle"))
     gameSettingsFrame.boxLayout:addElement(title)
 
     local template = gameSettingsFrame.economicDifficulty:clone()
@@ -68,7 +68,7 @@ function TgmSettingsGui:initialize(gameSettingsFrame)
     for i=5,195,5 do
         table.insert(template.texts, tostring(i).."%")
     end
-    template.elements[4]:setText("")
+    template:setLabel("")
     template.elements[6]:setText("")
     template:setState(20)
 
@@ -92,7 +92,7 @@ function TgmSettingsGui:initialize(gameSettingsFrame)
         else
             variations[treeType.nameI18N] = 2
         end
-        element.elements[4]:setText(g_i18n:getText("treeGrowthManager_settingsGui_growthRate").." ("..displayName..")")
+        element:setLabel(displayName)
         TgmSettingsGui.setTooltip(element, treeType.growthTimeHours, target.defaultGrowthHours[treeType.name])
 
         self.elements[treeType.name] = element

@@ -2,8 +2,7 @@
 <l10n>
     <translationContributors>Beaver Bois Modding</translationContributors>
     <texts>
-        <text name="treeGrowthManager_settingsGui_title" text="Tree Growth Manager" />
-        <text name="treeGrowthManager_settingsGui_growthRate" text="Growth rate" />
+        <text name="treeGrowthManager_settingsGui_growthRatesTitle" text="Tree Growth Manager - Growth Rates" />
         <text name="treeGrowthManager_settingsGui_current" text="Current" />
         <text name="treeGrowthManager_settingsGui_default" text="Default" />
         <text name="treeGrowthManager_settingsGui_hour" text="hour" />
