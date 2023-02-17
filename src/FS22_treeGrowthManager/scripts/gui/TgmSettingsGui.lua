@@ -65,7 +65,7 @@ function TgmSettingsGui:initialize(gameSettingsFrame)
     template.onClickCallback = self.onStateChanged
     template.buttonLRChange = self.onStateChanged
     template.texts = {}
-    for i=5,200,5 do
+    for i=5,195,5 do
         table.insert(template.texts, tostring(i).."%")
     end
     template.elements[4]:setText("")

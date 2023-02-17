@@ -10,6 +10,7 @@ source(Utils.getFilename("scripts/utils/TgmTableUtil.lua", g_currentModDirectory
 source(Utils.getFilename("scripts/events/TgmGrowthRateChangedEvent.lua", g_currentModDirectory))
 source(Utils.getFilename("scripts/events/TgmSynchronizeConfigurationEvent.lua", g_currentModDirectory))
 source(Utils.getFilename("scripts/gui/TgmSettingsGui.lua", g_currentModDirectory))
+source(Utils.getFilename("scripts/TgmConfigurationV1.lua", g_currentModDirectory))
 source(Utils.getFilename("scripts/TgmConfiguration.lua", g_currentModDirectory))
 source(Utils.getFilename("scripts/TreeGrowthManager.lua", g_currentModDirectory))
 

@@ -3,9 +3,9 @@
 ![For Farming Simulator 22](https://img.shields.io/badge/Farming%20Simulator-22-10BEFF.svg?style=for-the-badge) [![Releases](https://img.shields.io/github/v/release/Beaver-Bois-Modding/fs22-tgm.svg?style=for-the-badge)](https://github.com/Beaver-Bois-Modding/fs22-tgm/releases)
 
 Make forrestry on your farm more enjoyable and cost effective, by taking control of the amount of time it takes each species of tree to fully grow to maturity.
-TGM gives you the ability to change the relative growth rate of a particular tree species from 100% down to 5% - or even up to 200% if you so desire.
+TGM gives you the ability to change the growth rate of a particular tree species from 100% up to 195% - or even down to 5% if you so desire.
 
-TGM extends the built-in game settings menu, where you'll find a new section with the relative growth rates. In a multiplayer setting, this also means that the settings are restricted to admins.
+TGM extends the built-in game settings menu, where you'll find a new section with the growth rates. In a multiplayer setting, this also means that the settings are restricted to admins.
 
 ## Distribution
 

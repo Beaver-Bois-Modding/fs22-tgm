@@ -6,7 +6,7 @@
 -- ---------------------------------------------------------------------------
 
 TgmConfiguration = {}
-TgmConfiguration.VERSION = 1
+TgmConfiguration.VERSION = 2
 TgmConfiguration.FILENAME = "treeGrowthManager.xml"
 
 local TgmConfiguration_mt = Class(TgmConfiguration)
@@ -28,8 +28,8 @@ function TgmConfiguration.getPercentage(xmlFile, xmlPath, defaultValue)
     local percentage = xmlFile:getInt(xmlPath, defaultValue)
     if (percentage < 5) then
         percentage = 5
-    elseif (percentage > 200) then
-        percentage = 200
+    elseif (percentage > 195) then
+        percentage = 195
     elseif (percentage % 5 ~= 0) then
         percentage = 100
     end
@@ -53,25 +53,34 @@ function TgmConfiguration:loadFromFile(savegameDirectoryPath)
     end
 
     local version = xmlFile:getInt("treeGrowthManager#version")
-    if (version ~= self.VERSION) then
-        return
-    end
+    if (version == self.VERSION) then
+        xmlFile:iterate(
+            "treeGrowthManager.species.species",
+            function(_, key)
+                local name = xmlFile:getString(key.."#name")
+                if (name == nil) then
+                    return
+                end
+                local growthRate = self.getPercentage(xmlFile, key.."#growthRate")
+                if (growthRate == nil) then
+                    return
+                end
 
-    xmlFile:iterate(
-        "treeGrowthManager.species.species",
-        function(_, key)
-            local name = xmlFile:getString(key.."#name")
-            if (name == nil) then
-                return
+                self.growthRates[name] = growthRate
             end
-            local growthRate = self.getPercentage(xmlFile, key.."#growthRate")
-            if (growthRate == nil) then
-                return
-            end
+        )
+    elseif (version == TgmConfigurationV1.VERSION) then
+        local configurationV1 = TgmConfigurationV1.new()
+        configurationV1:load(xmlFile)
 
+        for name, growthRate in pairs(configurationV1.growthRates) do
+            growthRate = (200 - growthRate)
+            if (growthRate == 0) then
+                growthRate = 5
+            end
             self.growthRates[name] = growthRate
         end
-    )
+    end
 
     xmlFile:delete()
 end

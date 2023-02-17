@@ -36,7 +36,7 @@ function TreeGrowthManager:invalidateGrowthRate(species)
     end
 
     local hours = self.defaultGrowthHours[species]
-    hours = math.floor(((hours * (growthRate / 100)) + 0.5))
+    hours = math.floor(((hours * ((200 - growthRate) / 100)) + 0.5))
     g_treePlantManager.nameToTreeType[species].growthTimeHours = hours
 
     self.settingsGui:invalidateGrowthRate(species)
