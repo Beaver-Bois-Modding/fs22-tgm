@@ -11,6 +11,8 @@
         <text name="treeGrowthManager_settingsGui_title" text="Tree Growth Manager - Settings" />
         <text name="treeGrowthManager_settingsGui_generalSubtitle" text="General" />
         <text name="treeGrowthManager_settingsGui_growthRatesSubtitle" text="Growth Rates" />
+        <text name="treeGrowthManager_settingsGui_showControlHintLabel" text="Show control hint" />
+        <text name="treeGrowthManager_settingsGui_showControlHintTooltip" text="Whether or not to show the control binding for this menu in the control hints." />
         <text name="treeGrowthManager_settingsGui_groupVariationsLabel" text="Group tree variations" />
         <text name="treeGrowthManager_settingsGui_groupVariationsTooltip" text="Whether or not to group variations of the same tree type into a single growth rate setting. Grouping is based upon having the same localized name and the same default growth rate. Changing this will reset existing growth rate settings." />
         <text name="treeGrowthManager_settingsGui_current" text="Current" />

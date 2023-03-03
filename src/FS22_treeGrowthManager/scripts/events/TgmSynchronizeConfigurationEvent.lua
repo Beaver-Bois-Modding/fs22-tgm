@@ -28,6 +28,7 @@ end
 function TgmSynchronizeConfigurationEvent:readStream(streamId, connection)
     self.configuration = TgmConfiguration.new()
 
+    self.configuration.showControlHint = streamReadBool(streamId)
     self.configuration.groupVariations = streamReadBool(streamId)
 
     local growthRateCount = streamReadInt8(streamId)
@@ -54,6 +55,7 @@ function TgmSynchronizeConfigurationEvent:writeStream(streamId, connection)
         growthRateCount = (growthRateCount + 1)
     end
 
+    streamWriteBool(streamId, self.configuration.showControlHint)
     streamWriteBool(streamId, self.configuration.groupVariations)
     streamWriteInt8(streamId, growthRateCount)
     if (growthRateCount > 0) then

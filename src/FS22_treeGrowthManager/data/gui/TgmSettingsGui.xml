@@ -14,7 +14,15 @@
             </GuiElement>
             <GuiElement type="scrollingLayout" profile="ingameMenuSettingsLayout" topClipperElementName="topClipper" bottomClipperElementName="bottomClipper" id="boxLayout">
                 <GuiElement type="text" profile="settingsMenuSubtitle" text="$l10n_treeGrowthManager_settingsGui_generalSubtitle" />
-                <GuiElement type="checkedOption" profile="multiTextOptionSettings" texts="$l10n_ui_no|$l10n_ui_yes" onClick="onGroupVariationsStateChanged" focusInit="onOpen" id="groupVariations">
+                <GuiElement type="checkedOption" profile="multiTextOptionSettings" texts="$l10n_ui_no|$l10n_ui_yes" onClick="onShowControlHintStateChanged" focusInit="onOpen" id="showControlHint">
+                    <GuiElement type="button" profile="multiTextOptionSettingsLeft" />
+                    <GuiElement type="button" profile="multiTextOptionSettingsRight" />
+                    <GuiElement type="text" profile="multiTextOptionSettingsText" />
+                    <GuiElement type="text" profile="multiTextOptionSettingsTitle" text="$l10n_treeGrowthManager_settingsGui_showControlHintLabel" />
+                    <GuiElement type="bitmap" profile="multiTextOptionSettingsBg" />
+                    <GuiElement type="text" profile="multiTextOptionSettingsTooltip" text="$l10n_treeGrowthManager_settingsGui_showControlHintTooltip" />
+                </GuiElement>
+                <GuiElement type="checkedOption" profile="multiTextOptionSettings" texts="$l10n_ui_no|$l10n_ui_yes" onClick="onGroupVariationsStateChanged" id="groupVariations">
                     <GuiElement type="button" profile="multiTextOptionSettingsLeft" />
                     <GuiElement type="button" profile="multiTextOptionSettingsRight" />
                     <GuiElement type="text" profile="multiTextOptionSettingsText" />

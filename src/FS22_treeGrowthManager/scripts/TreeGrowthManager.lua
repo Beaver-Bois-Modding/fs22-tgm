@@ -57,6 +57,11 @@ function TreeGrowthManager:invalidateGrowthRates()
     end
 end
 
+function TreeGrowthManager:invalidateShowControlHint()
+    self.settingsGui:invalidateShowControlHint()
+    self:updateShowSettingsGuiVisibility()
+end
+
 function TreeGrowthManager:loadConfiguration()
     if (not self.isServer) then
         return
@@ -90,9 +95,7 @@ function TreeGrowthManager:onLoadStarting(mission00)
 end
 
 function TreeGrowthManager:onMasterUserAdded(user)
-    if (user:getId() == self.mission.player.userId) then
-        g_inputBinding:setActionEventTextVisibility(showSettingsEventId, true)
-    end
+    self:updateShowSettingsGuiVisibility()
 end
 
 function TreeGrowthManager:registerActionEvents()
@@ -102,7 +105,7 @@ function TreeGrowthManager:registerActionEvents()
     )
     self.showSettingsGuiEventId = showSettingsEventId
     g_inputBinding:setActionEventTextPriority(showSettingsEventId, GS_PRIO_VERY_LOW)
-    g_inputBinding:setActionEventTextVisibility(showSettingsEventId, self.mission.isMasterUser)
+    self:updateShowSettingsGuiVisibility()
 end
 
 function TreeGrowthManager:replaceConfiguration(configuration)
@@ -133,4 +136,9 @@ end
 function TreeGrowthManager:unload()
     g_gui.inputManager:removeActionEventsByTarget(self)
     g_messageCenter:unsubscribeAll(self)
+end
+
+function TreeGrowthManager:updateShowSettingsGuiVisibility()
+    local shouldShow = (self.configuration.showControlHint and self.mission.isMasterUser)
+    g_inputBinding:setActionEventTextVisibility(self.showSettingsGuiEventId, shouldShow)
 end

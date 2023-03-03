@@ -8,6 +8,7 @@
 TgmSettingsGui = {}
 TgmSettingsGui.CONTROLS = {
     BOX_LAYOUT = "boxLayout",
+    SHOW_CONTROL_HINT = "showControlHint",
     GROUP_VARIATIONS = "groupVariations",
     GROWTH_RATE_TEMPLATE = "growthRateTemplate"
 }
@@ -157,6 +158,7 @@ end
 function TgmSettingsGui:initializeScreen()
     TgmSettingsGui:superClass().initializeScreen(self)
 
+    self:invalidateShowControlHint()
     self:invalidateGroupVariations()
     self:drawGrowthRates()
 
@@ -202,6 +204,14 @@ function TgmSettingsGui:invalidateGrowthRate(species)
     )
 end
 
+function TgmSettingsGui:invalidateShowControlHint()
+    if (not self.isInitialized) then
+        return
+    end
+
+    self.showControlHint:setIsChecked(g_treeGrowthManager.configuration.showControlHint)
+end
+
 function TgmSettingsGui:onClickBack()
     TgmSettingsGui:superClass().onClickBack(self)
     self:changeScreen(nil)
@@ -214,6 +224,10 @@ end
 function TgmSettingsGui:onGrowthRateStateChanged(state, sender)
     local growthRate = self:convertStateToGrowthRate(state)
     g_client:getServerConnection():sendEvent(TgmGrowthRateChangedEvent.new(sender.__species, growthRate))
+end
+
+function TgmSettingsGui:onShowControlHintStateChanged(state, sender)
+    g_client:getServerConnection():sendEvent(TgmShowControlHintChangedEvent.new(sender:getIsChecked()))
 end
 
 function TgmSettingsGui:toggleGrowthRates()
