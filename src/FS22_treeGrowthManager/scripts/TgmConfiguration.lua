@@ -8,12 +8,17 @@
 TgmConfiguration = {}
 TgmConfiguration.VERSION = 2
 TgmConfiguration.FILENAME = "treeGrowthManager.xml"
+TgmConfiguration.DEFAULTS = {
+    groupVariations = false
+}
 
 local TgmConfiguration_mt = Class(TgmConfiguration)
 
 function TgmConfiguration.new()
     local self = {}
     setmetatable(self, TgmConfiguration_mt)
+
+    self.groupVariations = self.DEFAULTS.groupVariations
 
     self.growthRates = {}
 
@@ -54,6 +59,7 @@ function TgmConfiguration:loadFromFile(savegameDirectoryPath)
 
     local version = xmlFile:getInt("treeGrowthManager#version")
     if (version == self.VERSION) then
+        self.groupVariations = xmlFile:getBool("treeGrowthManager.groupVariations", self.groupVariations)
         xmlFile:iterate(
             "treeGrowthManager.species.species",
             function(_, key)
@@ -73,6 +79,7 @@ function TgmConfiguration:loadFromFile(savegameDirectoryPath)
         local configurationV1 = TgmConfigurationV1.new()
         configurationV1:load(xmlFile)
 
+        self.groupVariations = false
         for name, growthRate in pairs(configurationV1.growthRates) do
             growthRate = (200 - growthRate)
             if (growthRate == 0) then
@@ -97,6 +104,7 @@ function TgmConfiguration:saveToFile(savegameDirectoryPath)
     end
 
     xmlFile:setInt("treeGrowthManager#version", self.VERSION)
+    xmlFile:setBool("treeGrowthManager.groupVariations", self.groupVariations)
 
     local i = 0
     for name, growthRate in pairs(self.growthRates) do

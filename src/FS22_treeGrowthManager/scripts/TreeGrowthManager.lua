@@ -9,15 +9,17 @@ TreeGrowthManager = {}
 
 local TreeGrowthManager_mt = Class(TreeGrowthManager)
 
-function TreeGrowthManager.new()
+function TreeGrowthManager.new(modDirectory)
     local self = {}
     setmetatable(self, TreeGrowthManager_mt)
 
+    self.modDirectory = modDirectory
     self.mission = nil
     self.isServer = false
     self.l10nImporter = TgmL10nImporter.new()
     self.configuration = TgmConfiguration.new()
     self.settingsGui = TgmSettingsGui.new()
+    self.showSettingsGuiEventId = nil
     self.defaultGrowthHours = {}
 
     return self
@@ -57,6 +59,10 @@ function TreeGrowthManager:loadConfiguration()
     self.configuration:loadFromFile(savegameDirectory)
 end
 
+function TreeGrowthManager:loadGui()
+    g_gui:loadGui(Utils.getFilename("data/gui/TgmSettingsGui.xml", self.modDirectory), "TgmSettingsGui", self.settingsGui)
+end
+
 function TreeGrowthManager:onClientConnected(connection)
     connection:sendEvent(TgmSynchronizeConfigurationEvent.new(self.configuration))
 end
@@ -65,6 +71,8 @@ function TreeGrowthManager:onLoadFinished()
     self.l10nImporter:import()
     self:captureDefaultGrowthRates()
     self:invalidateGrowthRates()
+    self:loadGui()
+    self:subscribeToMessages()
 end
 
 function TreeGrowthManager:onLoadStarting(mission00)
@@ -72,6 +80,27 @@ function TreeGrowthManager:onLoadStarting(mission00)
     self.isServer = mission00:getIsServer()
 
     self:loadConfiguration()
+end
+
+function TreeGrowthManager:onMasterUserAdded(user)
+    if (user:getId() == self.mission.player.userId) then
+        g_inputBinding:setActionEventTextVisibility(showSettingsEventId, true)
+    end
+end
+
+function TreeGrowthManager:registerActionEvents()
+    local _, showSettingsEventId = g_gui.inputManager:registerActionEvent(
+        InputAction.TGM_SHOW_SETTINGS, self, self.showSettingsGui,
+        false, true, false, true, nil, nil, true
+    )
+    self.showSettingsGuiEventId = showSettingsEventId
+    g_inputBinding:setActionEventTextPriority(showSettingsEventId, GS_PRIO_VERY_LOW)
+    g_inputBinding:setActionEventTextVisibility(showSettingsEventId, self.mission.isMasterUser)
+end
+
+function TreeGrowthManager:replaceConfiguration(configuration)
+    self.configuration = configuration
+    self:invalidateGrowthRates()
 end
 
 function TreeGrowthManager:saveConfiguration()
@@ -83,7 +112,18 @@ function TreeGrowthManager:saveConfiguration()
     self.configuration:saveToFile(savegameDirectory)
 end
 
-function TreeGrowthManager:replaceConfiguration(configuration)
-    self.configuration = configuration
-    self:invalidateGrowthRates()
+function TreeGrowthManager:showSettingsGui()
+    if (not self.mission.isMasterUser or g_gui:getIsGuiVisible()) then
+        return
+    end
+    g_gui:showGui("TgmSettingsGui")
+end
+
+function TreeGrowthManager:subscribeToMessages()
+    g_messageCenter:subscribe(MessageType.MASTERUSER_ADDED, self.onMasterUserAdded, self)
+end
+
+function TreeGrowthManager:unload()
+    g_gui.inputManager:removeActionEventsByTarget(self)
+    g_messageCenter:unsubscribeAll(self)
 end

@@ -5,7 +5,7 @@
 Make forrestry on your farm more enjoyable and cost effective, by taking control of the amount of time it takes each species of tree to fully grow to maturity.
 TGM gives you the ability to change the growth rate of a particular tree species from 100% up to 195% - or even down to 5% if you so desire.
 
-TGM extends the built-in game settings menu, where you'll find a new section with the growth rates. In a multiplayer setting, this also means that the settings are restricted to admins.
+TGM provides a custom settings menu, which can be accessed by the default keybind of LEFT ALT + 1. In a multiplayer setting, this menu will only be accessible by admins.
 
 ## Distribution
 

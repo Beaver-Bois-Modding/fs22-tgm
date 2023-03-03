@@ -2,10 +2,18 @@
 <l10n>
     <translationContributors>Beaver Bois Modding</translationContributors>
     <texts>
-        <text name="treeGrowthManager_settingsGui_growthRatesTitle" text="Tree Growth Manager - Growth Rates" />
+        <!-- Inputs -->
+        <text name="input_TGM_SHOW_SETTINGS" text="TGM: Show settings" />
+        <!-- Units -->
+        <text name="treeGrowthManager_units_hour" text="hour" />
+        <text name="treeGrowthManager_units_hours" text="hours" />
+        <!-- Settings GUI -->
+        <text name="treeGrowthManager_settingsGui_title" text="Tree Growth Manager - Settings" />
+        <text name="treeGrowthManager_settingsGui_generalSubtitle" text="General" />
+        <text name="treeGrowthManager_settingsGui_growthRatesSubtitle" text="Growth Rates" />
+        <text name="treeGrowthManager_settingsGui_groupVariationsLabel" text="Group tree variations" />
+        <text name="treeGrowthManager_settingsGui_groupVariationsTooltip" text="Whether or not to group variations of the same tree type into a single growth rate setting. Grouping is based upon having the same localized name and the same default growth rate. Changing this will reset existing growth rate settings." />
         <text name="treeGrowthManager_settingsGui_current" text="Current" />
         <text name="treeGrowthManager_settingsGui_default" text="Default" />
-        <text name="treeGrowthManager_settingsGui_hour" text="hour" />
-        <text name="treeGrowthManager_settingsGui_hours" text="hours" />
     </texts>
 </l10n>
