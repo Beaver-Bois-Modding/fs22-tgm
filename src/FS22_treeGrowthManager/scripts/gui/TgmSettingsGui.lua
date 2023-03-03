@@ -157,12 +157,18 @@ end
 function TgmSettingsGui:initializeScreen()
     TgmSettingsGui:superClass().initializeScreen(self)
 
-    self.groupVariations:setIsChecked(false)
-    self.groupVariations:setDisabled(true)
-
+    self:invalidateGroupVariations()
     self:drawGrowthRates()
 
     self.boxLayout:invalidateLayout()
+end
+
+function TgmSettingsGui:invalidateGroupVariations()
+    if (not self.isInitialized) then
+        return
+    end
+
+    self.groupVariations:setIsChecked(g_treeGrowthManager.configuration.groupVariations)
 end
 
 function TgmSettingsGui:invalidateGrowthRate(species)
@@ -170,7 +176,16 @@ function TgmSettingsGui:invalidateGrowthRate(species)
         return
     end
 
-    local element = self.speciesToGrowthRateMappings.single[species]
+    local element = nil
+    if (g_treeGrowthManager.configuration.groupVariations) then
+        species = species:split("|")[1]
+        element = self.speciesToGrowthRateMappings.group[species]
+        if (element == nil) then
+            return
+        end
+    else
+        element = self.speciesToGrowthRateMappings.single[species]
+    end
 
     local growthRate = g_treeGrowthManager.configuration.growthRates[species]
     if (growthRate == nil) then
@@ -193,6 +208,7 @@ function TgmSettingsGui:onClickBack()
 end
 
 function TgmSettingsGui:onGroupVariationsStateChanged(state, sender)
+    g_client:getServerConnection():sendEvent(TgmGroupVariationsChangedEvent.new(sender:getIsChecked()))
 end
 
 function TgmSettingsGui:onGrowthRateStateChanged(state, sender)

@@ -31,16 +31,23 @@ function TreeGrowthManager:captureDefaultGrowthRates()
     end
 end
 
+function TreeGrowthManager:invalidateGroupVariations()
+    self.settingsGui:invalidateGroupVariations()
+    self.settingsGui:toggleGrowthRates()
+    self:invalidateGrowthRates()
+end
+
 function TreeGrowthManager:invalidateGrowthRate(species)
-    local growthRate = self.configuration.growthRates[species]
-    if (growthRate == nil) then
-        return
+    for _, singleSpecies in pairs(species:split("|")) do
+        local growthRate = self.configuration.growthRates[singleSpecies]
+        if (growthRate ~= nil) then
+            local hours = self.defaultGrowthHours[singleSpecies]
+            hours = math.floor(((hours * ((200 - growthRate) / 100)) + 0.5))
+            g_treePlantManager.nameToTreeType[singleSpecies].growthTimeHours = hours
+        else
+            g_treePlantManager.nameToTreeType[singleSpecies].growthTimeHours = self.defaultGrowthHours[singleSpecies]
+        end
     end
-
-    local hours = self.defaultGrowthHours[species]
-    hours = math.floor(((hours * ((200 - growthRate) / 100)) + 0.5))
-    g_treePlantManager.nameToTreeType[species].growthTimeHours = hours
-
     self.settingsGui:invalidateGrowthRate(species)
 end
 

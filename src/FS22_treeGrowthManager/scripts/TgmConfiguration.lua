@@ -9,7 +9,7 @@ TgmConfiguration = {}
 TgmConfiguration.VERSION = 2
 TgmConfiguration.FILENAME = "treeGrowthManager.xml"
 TgmConfiguration.DEFAULTS = {
-    groupVariations = false
+    groupVariations = true
 }
 
 local TgmConfiguration_mt = Class(TgmConfiguration)
