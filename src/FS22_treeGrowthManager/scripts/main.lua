@@ -18,12 +18,14 @@ source(Utils.getFilename("scripts/TgmConfigurationV1.lua", g_currentModDirectory
 source(Utils.getFilename("scripts/TgmConfiguration.lua", g_currentModDirectory))
 source(Utils.getFilename("scripts/TreeGrowthManager.lua", g_currentModDirectory))
 
+source(Utils.getFilename("scripts/extensions/CheckedOptionElementEx.lua", g_currentModDirectory))
 source(Utils.getFilename("scripts/extensions/FSBaseMissionEx.lua", g_currentModDirectory))
 source(Utils.getFilename("scripts/extensions/FSCareerMissionInfoEx.lua", g_currentModDirectory))
 source(Utils.getFilename("scripts/extensions/Mission00Ex.lua", g_currentModDirectory))
 
 g_treeGrowthManager = TreeGrowthManager.new(g_currentModDirectory)
 
+CheckedOptionElementEx.initialize()
 FSBaseMissionEx.initialize()
 FSCareerMissionInfoEx.initialize()
 Mission00Ex.initialize()
