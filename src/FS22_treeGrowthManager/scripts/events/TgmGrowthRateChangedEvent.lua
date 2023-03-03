@@ -1,7 +1,7 @@
 -- ---------------------------------------------------------------------------
 -- Game: Farming Simulator 22
 -- Name: Tree Growth Manager
--- Version: 1.0.0.0
+-- Version: 1.1.0.0
 -- Author: Beaver Bois Modding
 -- ---------------------------------------------------------------------------
 
@@ -34,7 +34,9 @@ function TgmGrowthRateChangedEvent:readStream(streamId, connection)
 end
 
 function TgmGrowthRateChangedEvent:run(connection)
-    g_treeGrowthManager.configuration.growthRates[self.species] = self.growthRate
+    for _, species in ipairs(self.species:split("|")) do
+        g_treeGrowthManager.configuration.growthRates[species] = self.growthRate
+    end
     g_treeGrowthManager:invalidateGrowthRate(self.species)
 
     if (g_server ~= nil) then

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
-<modDesc descVersion="67">
+<modDesc descVersion="72">
     <title>
         <en>Tree Growth Manager</en>
     </title>
@@ -7,17 +7,35 @@
         <en>
 <![CDATA[
 Make forrestry on your farm more enjoyable and cost effective, by taking control of the amount of time it takes each species of tree to fully grow to maturity.
-TGM gives you the ability to change the relative growth rate of a particular tree species from 100% down to 5% - or even up to 200% if you so desire.
+TGM gives you the ability to change the growth rate of a particular tree species from 100% up to 195% - or even down to 5% if you so desire.
 
-TGM extends the built-in game settings menu, where you'll find a new section with the relative growth rates. In a multiplayer setting, this also means that the settings are restricted to admins.
+TGM provides a custom settings menu, which can be accessed by the default keybind of LEFT ALT + 1. In a multiplayer setting, this menu will only be accessible by admins.
+
+If you'd like to report a bug with this mod or would like to translate the mod into your own language, head on over to our <a href="https://github.com/Beaver-Bois-Modding/fs22-tgm">GitHub repository</a>.
+
+Changelog 1.1.0.0:
+- Implemented a custom settings menu, instead of extending the built-in game settings menu
+- Fixed issues navigating the settings with a controller
+- Fixed tree names not being loaded correctly for non-base maps (e.g. Silverrun Forest from the Platinum Expansion)
+- Switched the axis of the growth rates to make it more intuitive (e.g. 105% is now faster and 95% is now slower, instead of the other way around)
+- Implemented grouping of growth rates for variations of the same tree type
 ]]>
         </en>
     </description>
-    <version>1.0.0.0</version>
+    <version>1.1.0.0</version>
     <author>Beaver Bois Modding</author>
-    <iconFilename>modIcon.dds</iconFilename>
+    <iconFilename>icon_treeGrowthManager.dds</iconFilename>
     <multiplayer supported="true" />
     <l10n filenamePrefix="data/l10n/locale" />
+
+    <actions>
+        <action name="TGM_SHOW_SETTINGS" axisType="HALF" />
+    </actions>
+    <inputBinding>
+        <actionBinding action="TGM_SHOW_SETTINGS">
+            <binding device="KB_MOUSE_DEFAULT" input="KEY_lalt KEY_1" index="1" />
+        </actionBinding>
+    </inputBinding>
 
     <extraSourceFiles>
         <sourceFile filename="scripts/main.lua" />

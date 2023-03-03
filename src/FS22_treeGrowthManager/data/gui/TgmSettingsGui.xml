@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<GUI onOpen="onOpen" onClose="onClose">
+    <GuiElement type="bitmap" profile="uiFullInGameBackground" />
+    <GuiElement type="bitmap" profile="bgVignette" />
+    <GuiElement type="empty" profile="uiInGameMenuFrame">
+        <GuiElement type="empty" profile="ingameMenuFrameHeaderPanel">
+            <GuiElement type="text" profile="ingameMenuFrameHeaderText" text="$l10n_treeGrowthManager_settingsGui_title" />
+        </GuiElement>
+        <GuiElement type="bitmap" profile="mainMenuSettingsBox">
+            <GuiElement type="bitmap" profile="topScrollClipper" name="topClipper" />
+            <GuiElement type="bitmap" profile="bottomScrollClipper" name="bottomClipper" />
+            <GuiElement type="threePartBitmap" profile="verticalListSliderRightDocked" handleFocus="false">
+                <GuiElement type="slider" profile="verticalListSliderBar" dataElementId="boxLayout" handleFocus="false" />
+            </GuiElement>
+            <GuiElement type="scrollingLayout" profile="ingameMenuSettingsLayout" topClipperElementName="topClipper" bottomClipperElementName="bottomClipper" id="boxLayout">
+                <GuiElement type="text" profile="settingsMenuSubtitle" text="$l10n_treeGrowthManager_settingsGui_generalSubtitle" />
+                <GuiElement type="checkedOption" subType="yesNo" profile="multiTextOptionSettings" onClick="onShowControlHintStateChanged" focusInit="onOpen" id="showControlHint">
+                    <GuiElement type="button" profile="multiTextOptionSettingsLeft" />
+                    <GuiElement type="button" profile="multiTextOptionSettingsRight" />
+                    <GuiElement type="text" profile="multiTextOptionSettingsText" />
+                    <GuiElement type="text" profile="multiTextOptionSettingsTitle" text="$l10n_treeGrowthManager_settingsGui_showControlHintLabel" />
+                    <GuiElement type="bitmap" profile="multiTextOptionSettingsBg" />
+                    <GuiElement type="text" profile="multiTextOptionSettingsTooltip" text="$l10n_treeGrowthManager_settingsGui_showControlHintTooltip" />
+                </GuiElement>
+                <GuiElement type="checkedOption" subType="yesNo" profile="multiTextOptionSettings" onClick="onGroupVariationsStateChanged" id="groupVariations">
+                    <GuiElement type="button" profile="multiTextOptionSettingsLeft" />
+                    <GuiElement type="button" profile="multiTextOptionSettingsRight" />
+                    <GuiElement type="text" profile="multiTextOptionSettingsText" />
+                    <GuiElement type="text" profile="multiTextOptionSettingsTitle" text="$l10n_treeGrowthManager_settingsGui_groupVariationsLabel" />
+                    <GuiElement type="bitmap" profile="multiTextOptionSettingsBg" />
+                    <GuiElement type="text" profile="multiTextOptionSettingsTooltip" text="$l10n_treeGrowthManager_settingsGui_groupVariationsTooltip" />
+                </GuiElement>
+                <GuiElement type="text" profile="settingsMenuSubtitle" text="$l10n_treeGrowthManager_settingsGui_growthRatesSubtitle" />
+                <GuiElement type="multiTextOption" profile="multiTextOptionSettings" texts="placeholder" onClick="onGrowthRateStateChanged" id="growthRateTemplate">
+                    <GuiElement type="button" profile="multiTextOptionSettingsLeft" />
+                    <GuiElement type="button" profile="multiTextOptionSettingsRight" />
+                    <GuiElement type="text" profile="multiTextOptionSettingsText" />
+                    <GuiElement type="text" profile="multiTextOptionSettingsTitle" text="placeholder" />
+                    <GuiElement type="bitmap" profile="multiTextOptionSettingsBg" />
+                    <GuiElement type="text" profile="multiTextOptionSettingsTooltip" text="placeholder" />
+                </GuiElement>
+            </GuiElement>
+        </GuiElement>
+        <GuiElement type="flowLayout" profile="buttonBoxDocked">
+            <GuiElement type="button" profile="buttonBack" onClick="onClickBack" text="$l10n_button_close" />
+        </GuiElement>
+    </GuiElement>
+</GUI>

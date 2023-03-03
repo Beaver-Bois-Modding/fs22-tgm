@@ -1,7 +1,7 @@
 -- ---------------------------------------------------------------------------
 -- Game: Farming Simulator 22
 -- Name: Tree Growth Manager
--- Version: 1.0.0.0
+-- Version: 1.1.0.0
 -- Author: Beaver Bois Modding
 -- ---------------------------------------------------------------------------
 
@@ -28,6 +28,9 @@ end
 function TgmSynchronizeConfigurationEvent:readStream(streamId, connection)
     self.configuration = TgmConfiguration.new()
 
+    self.configuration.showControlHint = streamReadBool(streamId)
+    self.configuration.groupVariations = streamReadBool(streamId)
+
     local growthRateCount = streamReadInt8(streamId)
     if (growthRateCount > 0) then
         for i=1, growthRateCount do
@@ -52,6 +55,8 @@ function TgmSynchronizeConfigurationEvent:writeStream(streamId, connection)
         growthRateCount = (growthRateCount + 1)
     end
 
+    streamWriteBool(streamId, self.configuration.showControlHint)
+    streamWriteBool(streamId, self.configuration.groupVariations)
     streamWriteInt8(streamId, growthRateCount)
     if (growthRateCount > 0) then
         for name, growthRate in pairs(self.configuration.growthRates) do
