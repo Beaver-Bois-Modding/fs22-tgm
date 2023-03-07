@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<l10n>
+    <!-- Blame GIANTS for making this a requirement -->
+    <translationContributors>Google Translate</translationContributors>
+    <texts>
+        <!-- Inputs -->
+        <text name="input_TGM_SHOW_SETTINGS" text="TGM: Einstellungen anzeigen" />
+        <!-- Units -->
+        <text name="treeGrowthManager_units_hour" text="Stunde" />
+        <text name="treeGrowthManager_units_hours" text="Std." />
+        <!-- Settings GUI -->
+        <text name="treeGrowthManager_settingsGui_title" text="Tree Growth Manager - Einstellungen" />
+        <text name="treeGrowthManager_settingsGui_generalSubtitle" text="Allgemein" />
+        <text name="treeGrowthManager_settingsGui_growthRatesSubtitle" text="Geburtsraten" />
+        <text name="treeGrowthManager_settingsGui_showControlHintLabel" text="Steuerungshinweis anzeigen" />
+        <text name="treeGrowthManager_settingsGui_showControlHintTooltip" text="Ob die Steuerungsbindung für dieses Menü in den Steuerungshinweisen angezeigt werden soll oder nicht." />
+        <text name="treeGrowthManager_settingsGui_groupVariationsLabel" text="Gruppenbaumvariationen" />
+        <text name="treeGrowthManager_settingsGui_groupVariationsTooltip" text="Ob Variationen desselben Baumtyps in einer einzigen Einstellung für die Wachstumsrate gruppiert werden sollen oder nicht. Die Gruppierung basiert auf dem gleichen lokalisierten Namen und der gleichen Standardwachstumsrate. Wenn Sie dies ändern, werden vorhandene Einstellungen für die Wachstumsrate zurückgesetzt." />
+        <text name="treeGrowthManager_settingsGui_current" text="Aktuell" />
+        <text name="treeGrowthManager_settingsGui_default" text="Standard" />
+    </texts>
+</l10n>
