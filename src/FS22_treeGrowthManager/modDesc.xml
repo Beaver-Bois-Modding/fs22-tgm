@@ -2,6 +2,7 @@
 <modDesc descVersion="72">
     <title>
         <en>Tree Growth Manager</en>
+        <de>Baumwachstumsmanager</de>
     </title>
     <description>
         <en>
@@ -13,6 +14,10 @@ TGM provides a custom settings menu, which can be accessed by the default keybin
 
 If you'd like to report a bug with this mod or would like to translate the mod into your own language, head on over to our <a href="https://github.com/Beaver-Bois-Modding/fs22-tgm">GitHub repository</a>.
 
+Changelog 1.1.1.0:
+- Updated icon
+- Added German translation (Google Translate, blame GIANTS)
+
 Changelog 1.1.0.0:
 - Implemented a custom settings menu, instead of extending the built-in game settings menu
 - Fixed issues navigating the settings with a controller
@@ -21,8 +26,29 @@ Changelog 1.1.0.0:
 - Implemented grouping of growth rates for variations of the same tree type
 ]]>
         </en>
+        <de>
+<![CDATA[
+Machen Sie die Forstwirtschaft auf Ihrer Farm angenehmer und kostengünstiger, indem Sie die Zeit kontrollieren, die jede Baumart benötigt, um vollständig zur Reife zu wachsen.
+TGM gibt Ihnen die Möglichkeit, die Wachstumsrate einer bestimmten Baumart von 100 % auf 195 % zu ändern – oder sogar auf 5 %, wenn Sie dies wünschen.
+
+TGM bietet ein benutzerdefiniertes Einstellungsmenü, auf das mit der Standardtastenkombination LINKS ALT + 1 zugegriffen werden kann. In einer Mehrspielereinstellung ist dieses Menü nur für Administratoren zugänglich.
+
+Wenn Sie einen Fehler mit diesem Mod melden oder den Mod in Ihre eigene Sprache übersetzen möchten, besuchen Sie unser <a href="https://github.com/Beaver-Bois-Modding/fs22-tgm">GitHub-Repository</a>.
+
+Änderungsprotokoll 1.1.1.0:
+- Aktualisiertes Symbol
+- Deutsche Übersetzung hinzugefügt (Google Translate, Schuld GIANTS)
+
+Änderungsprotokoll 1.1.0.0:
+- Ein benutzerdefiniertes Einstellungsmenü implementiert, anstatt das integrierte Spieleinstellungsmenü zu erweitern
+- Probleme beim Navigieren in den Einstellungen mit einem Controller behoben
+- Behoben, dass Baumnamen für Nicht-Basiskarten nicht korrekt geladen wurden (z. B. Silverrun Forest aus der Platinum-Erweiterung)
+- Achse der Wachstumsraten geändert, um es intuitiver zu machen (z. B. 105 % ist jetzt schneller und 95 % ist jetzt langsamer, anstatt umgekehrt)
+- Implementierte Gruppierung von Wachstumsraten für Variationen des gleichen Baumtyps
+]]>
+        </de>
     </description>
-    <version>1.1.0.0</version>
+    <version>1.1.1.0</version>
     <author>Beaver Bois Modding</author>
     <iconFilename>icon_treeGrowthManager.dds</iconFilename>
     <multiplayer supported="true" />
