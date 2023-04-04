@@ -3,6 +3,7 @@
     <title>
         <en>Tree Growth Manager</en>
         <de>Baumwachstumsmanager</de>
+        <br>Gerente de Crescimento de Árvores</br>
     </title>
     <description>
         <en>
@@ -13,6 +14,9 @@ TGM gives you the ability to change the growth rate of a particular tree species
 TGM provides a custom settings menu, which can be accessed by the default keybind of LEFT ALT + 1. In a multiplayer setting, this menu will only be accessible by admins.
 
 If you'd like to report a bug with this mod or would like to translate the mod into your own language, head on over to our <a href="https://github.com/Beaver-Bois-Modding/fs22-tgm">GitHub repository</a>.
+
+Changelog 1.1.2.0:
+- Added Brazilian Portuguese translation
 
 Changelog 1.1.1.0:
 - Updated icon
@@ -35,6 +39,9 @@ TGM bietet ein benutzerdefiniertes Einstellungsmenü, auf das mit der Standardta
 
 Wenn Sie einen Fehler mit diesem Mod melden oder den Mod in Ihre eigene Sprache übersetzen möchten, besuchen Sie unser <a href="https://github.com/Beaver-Bois-Modding/fs22-tgm">GitHub-Repository</a>.
 
+Änderungsprotokoll 1.1.2.0:
+- Brasilianische portugiesische Übersetzung hinzugefügt
+
 Änderungsprotokoll 1.1.1.0:
 - Aktualisiertes Symbol
 - Deutsche Übersetzung hinzugefügt
@@ -47,6 +54,30 @@ Wenn Sie einen Fehler mit diesem Mod melden oder den Mod in Ihre eigene Sprache 
 - Implementierte Gruppierung von Wachstumsraten für Variationen des gleichen Baumtyps
 ]]>
         </de>
+        <br>
+<![CDATA[
+Torne a silvicultura em sua fazenda mais agradável e econômica, controlando a quantidade de tempo que cada espécie de árvore leva para crescer totalmente até a maturidade.
+O TGM oferece a capacidade de alterar a taxa de crescimento de uma determinada espécie de árvore de 100% até 195% - ou até 5%, se desejar.
+
+O TGM fornece um menu de configurações personalizadas, que pode ser acessado pela combinação de teclas padrão de LEFT ALT + 1. Em uma configuração multijogador, este menu só será acessível por administradores.
+
+Se você gostaria de relatar um bug com este mod ou gostaria de traduzir o mod para seu próprio idioma, acesse nosso <a href="https://github.com/Beaver-Bois-Modding/fs22-tgm">Repositório GitHub</a>.
+
+Registro de alterações 1.1.2.0:
+- Adicionada tradução para o português do Brasil
+
+Registro de alterações 1.1.1.0:
+- Ícone atualizado
+- Adicionado tradução em alemão
+
+Registro de alterações 1.1.0.0:
+- Implementado um menu de configurações personalizadas, em vez de estender o menu de configurações do jogo integrado
+- Correção de problemas ao navegar pelas configurações com um controlador
+- Nomes de árvore corrigidos não sendo carregados corretamente para mapas não básicos (por exemplo, Silverrun Forest da expansão Platinum)
+- Mudou o eixo das taxas de crescimento para torná-lo mais intuitivo (por exemplo, 105% agora é mais rápido e 95% agora é mais lento, em vez do contrário)
+- Agrupamento implementado de taxas de crescimento para variações do mesmo tipo de árvore
+]]>
+        </br>
     </description>
     <version>1.1.2.0-dev</version>
     <author>Beaver Bois Modding</author>

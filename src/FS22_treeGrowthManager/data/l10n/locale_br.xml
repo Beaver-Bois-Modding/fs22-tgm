@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<l10n>
+    <translationContributors>Myiamoto86</translationContributors>
+    <texts>
+        <!-- Inputs -->
+        <text name="input_TGM_SHOW_SETTINGS" text="TGM: Mostrar configurações" />
+        <!-- Units -->
+        <text name="treeGrowthManager_units_hour" text="hora" />
+        <text name="treeGrowthManager_units_hours" text="horas" />
+        <!-- Settings GUI -->
+        <text name="treeGrowthManager_settingsGui_title" text="Gerente de Crescimento de Árvores - Configurações" />
+        <text name="treeGrowthManager_settingsGui_generalSubtitle" text="Geral" />
+        <text name="treeGrowthManager_settingsGui_growthRatesSubtitle" text="Taxas de crescimento" />
+        <text name="treeGrowthManager_settingsGui_showControlHintLabel" text="Mostrar dica de controle" />
+        <text name="treeGrowthManager_settingsGui_showControlHintTooltip" text="Mostrar ou não a ligação de controle para este menu nas dicas de controle." />
+        <text name="treeGrowthManager_settingsGui_groupVariationsLabel" text="Agrupar variações da árvore" />
+        <text name="treeGrowthManager_settingsGui_groupVariationsTooltip" text="Se deve ou não agrupar variações do mesmo tipo de árvore em uma única configuração de taxa de crescimento. O agrupamento é baseado em ter o mesmo nome localizado e a mesma taxa de crescimento padrão. Alterar isso redefinirá as configurações de taxa de crescimento existentes." />
+        <text name="treeGrowthManager_settingsGui_current" text="Atual" />
+        <text name="treeGrowthManager_settingsGui_default" text="Predefinição" />
+    </texts>
+</l10n>
