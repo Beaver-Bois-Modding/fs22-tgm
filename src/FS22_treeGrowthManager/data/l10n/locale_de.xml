@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <l10n>
-    <!-- Blame GIANTS for making this a requirement -->
-    <translationContributors>Google Translate</translationContributors>
     <texts>
         <!-- Inputs -->
         <text name="input_TGM_SHOW_SETTINGS" text="TGM: Einstellungen anzeigen" />
